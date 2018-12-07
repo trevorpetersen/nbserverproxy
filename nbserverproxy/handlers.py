@@ -239,7 +239,7 @@ class LocalProxyHandler(WebSocketHandlerMixin, IPythonHandler):
         # headers to see if and where they are being proxied from. We set
         # them to be {base_url}/proxy/{port}.
         headers['X-Forwarded-Context'] = headers['X-ProxyContextPath'] = \
-            url_path_join(self.base_url, 'proxy', port)
+            url_path_join(self.base_url, 'proxy', str(port))
 
         req = httpclient.HTTPRequest(
             client_uri, method=self.request.method, body=body,
